@@ -70,7 +70,6 @@ The tests module contains automated integration and API tests for the project.
 - Allure for test reporting
 
 #### Running Tests
-
 ./gradlew :tests:test - all tests
 ./gradlew :tests:smokeTest - only smoke tests
 
@@ -78,6 +77,7 @@ The tests module contains automated integration and API tests for the project.
 After running tests, generate and open the Allure report (You need Allure CLI installed):
 - allure generate tests/allure-results -o allure-report --clean
 - allure serve tests/allure-results
+- https://github.com/VitaAuto/PortfolioJavaProject - to see results on GitHub Pages
 
 #### Example Feature
 Feature files are written in Gherkin syntax.
