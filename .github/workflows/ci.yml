@@ -98,31 +98,30 @@ jobs:
   allure-report:
     needs: [test, smoke-test]
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download Allure results
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-results
+          path: tests/allure-results/
+      - name: Generate Allure report
+        run: |
+          docker run -v ${{ github.workspace }}/tests/allure-results:/allure-results -v ${{ github.workspace }}/public:/public registry.gitlab.com/qameta/allure/allure:2.27.0 generate /allure-results --clean -o /public
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: public/
 
-steps:
-  - uses: actions/checkout@v3
-  - name: Download Allure results
-    uses: actions/download-artifact@v3
-    with:
-      name: allure-results
-      path: tests/allure-results/
-  - name: Generate Allure report
-    run: |
-      docker run -v ${{ github.workspace }}/tests/allure-results:/allure-results -v ${{ github.workspace }}/public:/public registry.gitlab.com/qameta/allure/allure:2.27.0 generate /allure-results --clean -o /public
-  - name: Upload Allure report
-    uses: actions/upload-artifact@v3
-    with:
-      name: allure-report
-      path: public/
-
-deploy:
-  needs: allure-report
-  runs-on: ubuntu-latest
-  steps:
-    - name: Download Allure report
-      uses: actions/download-artifact@v3
-      with:
-        name: allure-report
-        path: public/
-    - name: Publish Allure report (manual step)
-      run: echo "Allure report ready for publishing"
+  deploy:
+    needs: allure-report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Allure report
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-report
+          path: public/
+      - name: Publish Allure report (manual step)
+        run: echo "Allure report ready for publishing"
