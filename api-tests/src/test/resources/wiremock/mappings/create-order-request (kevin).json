@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/orders",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.username == 'Kevin')]" },
+      { "matchesJsonPath": "$[?(@.description == 'Second order')]" },
+      { "matchesJsonPath": "$[?(@.amount == 0.99)]" }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "create-order-response (kevin).json"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "username": "Alice",
+  "status": "CREATED",
+  "description": "First order",
+  "amount": 100.50
+}
