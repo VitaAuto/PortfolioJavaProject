@@ -1,7 +1,7 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "  As an user
   I want to manage orders
-  So that I can view, create, update, patch, and delete orders","1338","Get all orders when no orders exist","","2026-03-09","passed","2026-03-09","","Order management","Get all orders when no orders exist",""
+  So that I can view, create, update, patch, and delete orders","231","Get all orders when no orders exist","","2026-03-13","passed","2026-03-13","","Order management","Get all orders when no orders exist",""
 "  As an user
   I want to manage orders
-  So that I can view, create, update, patch, and delete orders","372","No orders with negative amounts exist","","2026-03-09","passed","2026-03-09","","Order management","No orders with negative amounts exist",""
+  So that I can view, create, update, patch, and delete orders","50","No orders with negative amounts exist","","2026-03-13","passed","2026-03-13","","Order management","No orders with negative amounts exist",""
